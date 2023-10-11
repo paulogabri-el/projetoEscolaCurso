@@ -1,0 +1,35 @@
+﻿@model Escola.Models.Matricula
+@{
+    Layout = "_LayoutModals";
+    ViewData["Title"] = "Matrícula";
+}
+
+<div class="row">
+    <div class="col-12">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group d-flex flex-column">
+                <label asp-for="AlunoId" class="control-label mb-2">Aluno</label>
+                <select asp-for="AlunoId" class="form-control" asp-items="ViewBag.AlunoId"></select>
+            </div>
+
+            <div class="form-group d-flex flex-column">
+                <label asp-for="CursoId" class="control-label mb-2">Curso</label>
+                <select asp-for="CursoId" class="form-control mb-4" asp-items="ViewBag.CursoId"></select>
+            </div>
+
+            <div class="form-group d-flex mb-3">
+                <input type="submit" value="Salvar Matrícula" class="p-2 flex-fill btn btn-outline-secondary btn-sm btn-editado-modal" />
+                <button type="button" class="p-2 flex-fill btn btn-outline-secondary btn-sm btn-editado-modal" data-bs-dismiss="modal">Voltar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

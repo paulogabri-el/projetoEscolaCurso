@@ -1,0 +1,83 @@
+﻿@model Escola.Models.ViewModels.MatriculasAlunoViewModel
+@{
+    Layout = "_LayoutModals";
+    ViewData["Title"] = "Sou aluno";
+}
+
+<style>
+    .custom-top-margin {
+        margin-top: 150px;
+    }
+</style>
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Sucesso"]</span>
+        <button type="button" class="btn btn-success btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Informacao"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Informacao"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Erro"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+<div class="container mt-5 font-white">
+    <div class="row justify-content-center align-items-center custom-top-margin">
+                <div class="col-md-4 cardLogin m-4">
+            <section>
+                <form class="formBuscaMatriculas" asp-action="SouAlunoList">
+                    <h2 class="mb-3">MINHAS MATRÍCULAS</h2>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-floating label-float">
+                        <input asp-for="CPF" class="form-control"aria-required="true" />
+                        <label asp-for="CPF">CPF</label>
+                    </div>
+                    <div class="form-floating label-float">
+                        <input asp-for="DataNascimento" class="form-control" aria-required="true" />
+                        <label asp-for="DataNascimento">Data de nascimento</label>
+                    </div>
+
+                    <div>
+                        <button id="login-submit" type="submit" class="w-100 mb-3 btn btn-lg btn-primary btn-tela-login" data-bs-toggle="modal" data-bs-target="#modalSouAlunoMatriculas">Buscar Matrículas</button>
+                    </div>
+                    <div>
+                        <a class="w-100 mb-3 btn btn-lg btn-primary btn-tela-login btn-sou-aluno" asp-action="Index">Voltar</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalSouAlunoMatriculas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="modal-header" style=" border-bottom: 0;">
+                <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">MINHAS MATRÍCULAS ATIVAS</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="dadosSouAlunoMatriculas" style="margin: 20px;">
+            </div>
+            <div class="modal-footer" style="border-top: 0;">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

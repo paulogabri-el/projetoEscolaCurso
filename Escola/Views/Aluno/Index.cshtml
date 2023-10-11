@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Escola.Models.Aluno>
+
+@{
+    ViewData["Title"] = "Matrículas";
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Sucesso"]</span>
+        <button type="button" class="btn btn-success btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Informacao"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Informacao"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["CpfInvalido"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["CpfInvalido"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Erro"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="card">
+    <h1>Alunos</h1>
+
+    <p class="d-flex justify-content-start mt-3 mb-4">
+        <button type="button" class="btn btn-novo-aluno btn-editado" style="margin-right: 5px;" data-bs-toggle="modal" data-bs-target="#modalNovoAluno">
+            Novo Aluno
+        </button>
+        <a class="btn btn-editado" asp-action="AlunosInativos">Alunos Inativos</a>
+    </p>
+
+    <table class="table table-sm table-borderless table-color">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.CPF)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.DataNascimento)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.CpfFormatado)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.DataNascimento)
+                    </td>
+                    <td class="text-center btn-group-sm" role="group" arial-label="Small button group">
+                        <button aluno-id="@item.Id" type="button" class="btn btn-outline-secondary btn-editar-aluno btn-editado" data-bs-toggle="modal" data-bs-target="#modalEditarAluno">
+                            Editar
+                        </button>
+                        <button aluno-id="@item.Id" type="button" class="btn btn-outline-secondary btn-detalhes-aluno btn-editado" data-bs-toggle="modal" data-bs-target="#modalDetalhesAluno">
+                            Detalhes
+                        </button>
+                        <button aluno-id="@item.Id" type="button" class="btn btn-outline-secondary btn-inativar-aluno btn-editado" data-bs-toggle="modal" data-bs-target="#modalInativarAluno">
+                            Inativar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="modalNovoAluno" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="modal-header" style=" border-bottom: 0;">
+                <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">NOVO ALUNO</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="dadosCadastroAluno" style="margin: 20px;">
+            </div>
+            <div class="modal-footer" style="border-top: 0;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEditarAluno" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="modal-header" style=" border-bottom: 0;">
+                <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">EDITAR ALUNO</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="dadosEdicaoAluno" style="margin: 20px;">
+            </div>
+            <div class="modal-footer" style="border-top: 0;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDetalhesAluno" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="modal-header" style=" border-bottom: 0;">
+                <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">DETALHES ALUNO</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="dadosDetalhesAluno" style="margin: 20px; color: black;">
+            </div>
+            <div class="modal-footer" style="border-top: 0;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalInativarAluno" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px; color: black;">
+            <div class="modal-header" style=" border-bottom: 0;">
+                <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">INATIVAR ALUNO</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="dadosInativarAluno" style="margin: 20px; color: black;">
+            </div>
+            <div class="modal-footer" style="border-top: 0;">
+            </div>
+        </div>
+    </div>
+</div>
+

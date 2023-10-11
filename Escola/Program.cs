@@ -1,19 +1,25 @@
 using Escola.Data;
 using Escola.Models;
+using Escola.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+using System.Web.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddDbContext<EscolaContext>(options =>
-    options.UseSqlServer("Server=localhost,1433;Database=EscolaSqlServer;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;"));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer("Server=localhost,1433;Database=ProjetoEscolaSqlServer;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;"));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<EscolaContext>();
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddTransient<ISvcAluno, SvcAluno>();
+builder.Services.AddTransient<ISvcCurso, SvcCurso>();
+builder.Services.AddTransient<ISvcMatricula, SvcMatricula>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -35,12 +41,31 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+var cultures = new[] { new CultureInfo("pt-BR") };
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("pt-BR"),
+    SupportedCultures = cultures,
+    SupportedUICultures = cultures
+});
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/", async context =>
+    {
+        context.Response.Redirect("/Identity/Account/Login");
+    });
+    
+    endpoints.MapRazorPages();
+
+    app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+});
+
 app.MapRazorPages();
 
 app.Run();

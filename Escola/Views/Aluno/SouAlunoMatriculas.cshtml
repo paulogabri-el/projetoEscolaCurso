@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Escola.Models.Matricula>
+
+@{
+    Layout = "_LayoutModals";
+    ViewData["Title"] = "Matrículas";
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Sucesso"]</span>
+        <button type="button" class="btn btn-success btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Informacao"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Informacao"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Erro"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div>
+    <table class="table table-sm table-borderless">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Curso)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Aluno)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.DataCriacao)
+                </th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Curso.Descricao)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Aluno.Nome)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.DataCriacao)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <a class="btn btn-editado" asp-action="SouAluno">Voltar</a>
+    </div>
+</div>

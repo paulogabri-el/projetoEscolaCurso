@@ -1,18 +1,230 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+.font-white{
+    color: white;
 }
+
+.modal-editada {
+    background: rgba(255, 255, 255, 0.7);
+    color: black;
+}
+
+    .modal-editada input {
+        color: black;
+        background-color: transparent;
+        outline: none;
+        border-color: rgba(0, 0, 0, 0.8);
+    }
+
+        .modal-editada input:focus {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+            background-color: transparent;
+            outline: none;
+            border-radius: 0;
+            color: rgba(0, 0, 0, 0.8)
+        }
+
+    .modal-editada select {
+        background-color: transparent;
+        border-color: black;
+    }
+
+        .modal-editada select:hover {
+            background-color: transparent;
+            border-color: black;
+        }
+
+    .modal-editada label {
+        color: black;
+        font-weight: bold;
+    }
+
+    .modal-editada button {
+        background-color: transparent;
+        border-color: rgba(0, 0, 0, 0.8);
+        color: rgba(0, 0, 0, 0.8);
+        padding: 7px;
+        font-weight: bold;
+        font-size: 12pt;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: none;
+        transition: all .4s ease-out;
+    }
+
+body {
+    margin-bottom: 60px;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.35)), url('img.png')no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: black;
+}
+
+.table-color {
+    color: white;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.cardLogin {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: rgba(225,255,255,0.05);
+    border: 2px solid rgba(225,255,255,0.8);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardRegister {
+    position: relative;
+    width: 450px;
+    height: 550px;
+    background: rgba(225,255,255,0.05);
+    border: 2px solid rgba(225,255,255,0.8);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardInfo {
+    position: relative;
+    width: 620px;
+    height: 450px;
+    background: rgba(225,255,255,0.05);
+    border: 2px solid rgba(225,255,255,0.8);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-float {
+    position: relative;
+    padding-top: 13px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: rgba(255, 255, 255, 0.8)
+}
+
+    .label-float input {
+        width: 100%;
+        padding: 5px 5px;
+        display: inline-block;
+        border: 0;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+        background-color: transparent;
+        outline: none;
+        min-width: 180px;
+        font-size: 16px;
+        transition: all .3s ease-out;
+        border-radius: 0;
+        color: rgba(255, 255, 255, 0.8)
+    }
+
+        .label-float input:focus {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+            background-color: transparent;
+            outline: none;
+            border-radius: 0;
+            color: rgba(255, 255, 255, 0.8)
+        }
+
+    .label-float label {
+        color: rgba(255, 255, 255, 0.8);
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 13px;
+        transition: all .3s ease-out;
+    }
+
+    .label-float input:focus + label {
+        font-size: 13px;
+        margin-top: 0;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+.btn-editado {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 7px;
+    font-weight: bold;
+    font-size: 12pt;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all .4s ease-out;
+}
+
+    .btn-editado:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        border-color: transparent;
+    }
+
+.btn-editado-modal {
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.8);
+    color: black;
+    padding: 7px;
+    font-weight: bold;
+    font-size: 12pt;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all .4s ease-out;
+}
+
+    .btn-editado-modal:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        border-color: transparent;
+    }
+
+.btn-tela-login {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 7px;
+    font-weight: bold;
+    font-size: 12pt;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all .4s ease-out;
+}
+
+    .btn-tela-login:hover {
+        background-color: #a4a4a4;
+        color: black;
+        border-color: transparent;
+    }

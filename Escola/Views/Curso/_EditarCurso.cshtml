@@ -1,0 +1,34 @@
+﻿@model Escola.Models.Curso
+@{
+    Layout = "_LayoutModals";
+    ViewData["Title"] = "Curso";
+}
+
+<div class="row">
+    <div class="col-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group d-flex flex-column">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex flex-column">
+                <label asp-for="QtdMaxAlunos" class="control-label"></label>
+                <input asp-for="QtdMaxAlunos" class="form-control" />
+                <span asp-validation-for="QtdMaxAlunos" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex mb-3">
+                <input type="submit" value="Salvar Curso" class="p-2 flex-fill btn btn-outline-secondary btn-sm btn-editado-modal btn-editado-modal" />
+                <button type="button" class="p-2 flex-fill btn btn-outline-secondary btn-sm btn-editado-modal btn-editado-modal" data-bs-dismiss="modal">Voltar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

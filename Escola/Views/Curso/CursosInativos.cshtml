@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Escola.Models.Curso>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Sucesso"]</span>
+        <button type="button" class="btn btn-success btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Informacao"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Informacao"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Erro"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="card">
+    <h1>Cursos Inativos</h1>
+    <hr />
+    <table class="table table-sm table-borderless table-color">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Ativo)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.QtdMaxAlunos)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.DataCriacao)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.DataAlteracao)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Ativo)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.QtdMaxAlunos)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.DataCriacao)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.DataAlteracao)
+                    </td>
+                    <td class="text-center btn-group-sm" role="group" arial-label="Small button group">
+                        <button curso-id="@item.Id" type="button" class="btn btn-outline-secondary btn-detalhes-curso btn-editado" data-bs-toggle="modal" data-bs-target="#modalDetalhesCurso">
+                            Detalhes
+                        </button>
+                        <button curso-id="@item.Id" type="button" class="btn btn-outline-secondary btn-reativar-curso btn-editado" data-bs-toggle="modal" data-bs-target="#modalReativarCurso">
+                            Reativar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <a class="btn btn-editado" asp-action="Index">Voltar</a>
+    </div>
+
+    <div class="modal fade" id="modalDetalhesCurso" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+                <div class="modal-header" style=" border-bottom: 0;">
+                    <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">DETALHES CURSO</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="dadosDetalhesCurso" style="margin: 20px;">
+                </div>
+                <div class="modal-footer" style="border-top: 0;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalReativarCurso" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+                <div class="modal-header" style=" border-bottom: 0;">
+                    <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">REATIVAR CURSO</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="dadosReativarCurso" style="margin: 20px;">
+                </div>
+                <div class="modal-footer" style="border-top: 0;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

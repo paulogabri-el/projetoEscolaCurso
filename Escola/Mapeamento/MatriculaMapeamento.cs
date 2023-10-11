@@ -13,18 +13,23 @@ namespace Escola.Mapeamento
             builder.Property(x => x.Ativa)
                 .IsRequired();
 
-            builder.Property(x => x.DataCriacao)
-                .HasDefaultValueSql("getdate()");
-
             builder.HasOne(x => x.Aluno)
                 .WithMany(x => x.Matriculas)
                 .HasForeignKey(m => m.AlunoId)
-                .IsRequired();
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.Curso)
                 .WithMany(x => x.Matriculas)
                 .HasForeignKey(x => x.CursoId)
-                .IsRequired();
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Property(x => x.DataCriacao)
+                .HasColumnType("datetime2")
+                .IsRequired(false);
+
+            builder.Property(x => x.DataAlteracao)
+                .HasColumnType("datetime2")
+                .IsRequired(false);
         }
     }
 }

@@ -1,0 +1,54 @@
+﻿@model Escola.Models.Aluno
+@{
+    Layout = "_LayoutModals";
+    ViewData["Title"] = "Aluno";
+}
+
+<div>
+    <h4>Deseja continuar?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CPF)
+        </dd>
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataCriacao)
+        </dt>
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataCriacao)
+        </dd>
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataAlteracao)
+        </dt>
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataAlteracao)
+        </dd>
+    </dl>
+
+    <form asp-action="Reativar">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Reativar Aluno" class="p-2 flex-fill btn btn-outline-secondary btn-sm btn-editado-modal" />
+        <button type="button" class="p-2 flex-fill btn btn-outline-secondary btn-sm btn-editado-modal" data-bs-dismiss="modal">Voltar</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

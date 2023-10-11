@@ -9,7 +9,10 @@ namespace Escola.Mapeamento
         public void Configure(EntityTypeBuilder<Curso> builder)
         {
             builder.ToTable("Curso");
-            
+
+            builder.Property(x => x.Ativo)
+                .IsRequired();
+
             builder.Property(x => x.Descricao)
                 .HasColumnType("varchar(150)")
                 .IsRequired();
@@ -18,8 +21,12 @@ namespace Escola.Mapeamento
                 .IsRequired();
 
             builder.Property(x => x.DataCriacao)
-                .HasColumnType("datetime")
-                .HasDefaultValueSql("getdate()");
+                .HasColumnType("datetime2")
+                .IsRequired(false);
+
+            builder.Property(x => x.DataAlteracao)
+                .HasColumnType("datetime2")
+                .IsRequired(false);
         }
     }
 }

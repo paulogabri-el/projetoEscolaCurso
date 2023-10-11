@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Escola.Models.Matricula>
+
+@{
+    ViewData["Title"] = "Matrículas";
+}
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Sucesso"]</span>
+        <button type="button" class="btn btn-success btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Informacao"] != null)
+{
+    <div class="alert alert-warning d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Informacao"]</span>
+        <button type="button" class="btn btn-warning btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+        <span>@TempData["Erro"]</span>
+        <button type="button" class="btn btn-danger btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="card">
+    <h1>Matrículas</h1>
+
+    <p class="d-flex justify-content-start mt-3 mb-4">
+        <button type="button" class="btn btn-nova-matricula btn-editado" style="margin-right: 5px;" data-bs-toggle="modal" data-bs-target="#modalNovaMatricula">
+            Nova Matrícula
+        </button>
+        <a class="btn btn-editado" asp-action="ReativarMatricula">Matrículas Inativas</a>
+    </p>
+    <table class="table table-sm table-borderless table-color">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Ativa)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Curso)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Aluno)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.DataCriacao)
+                </th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Ativa)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Curso.Descricao)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Aluno.Nome)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.DataCriacao)
+                    </td>
+                    <td class="text-center btn-group-sm" role="group" arial-label="Small button group">
+                        <button matricula-id="@item.Id" type="button" class="btn btn-outline-secondary btn-editar-matricula btn-editado" data-bs-toggle="modal" data-bs-target="#modalEditarMatricula">
+                            Editar
+                        </button>
+                        <button matricula-id="@item.Id" type="button" class="btn btn-outline-secondary btn-detalhes-matricula btn-editado" data-bs-toggle="modal" data-bs-target="#modalDetalhesMatricula">
+                            Detalhes
+                        </button>
+                        <button matricula-id="@item.Id" type="button" class="btn btn-outline-secondary btn-inativar-matricula btn-editado" data-bs-toggle="modal" data-bs-target="#modalInativarMatricula">
+                            Inativar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="modalNovaMatricula" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+                <div class="modal-header" style=" border-bottom: 0;">
+                    <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">NOVA MATRÍCULA</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="dadosCadastroMatricula" style="margin: 20px;">
+                </div>
+                <div class="modal-footer" style="border-top: 0;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEditarMatricula" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+                <div class="modal-header" style=" border-bottom: 0;">
+                    <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">EDITAR MATRÍCULA</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="dadosEdicaoMatricula" style="margin: 20px;">
+                </div>
+                <div class="modal-footer" style="border-top: 0;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalDetalhesMatricula" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+                <div class="modal-header" style=" border-bottom: 0;">
+                    <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">DETALHES MATRÍCULA</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="dadosDetalhesMatricula" style="margin: 20px;">
+                </div>
+                <div class="modal-footer" style="border-top: 0;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalInativarMatricula" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content modal-editada" style="margin-top: 20px; margin-bottom: 20px;">
+                <div class="modal-header" style=" border-bottom: 0;">
+                    <h1 class="modal-title fs-5 text-black fw-bold" id="staticBackdropLabel">INATIVAR MATRÍCULA</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="dadosInativarMatricula" style="margin: 20px;">
+                </div>
+                <div class="modal-footer" style="border-top: 0;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
