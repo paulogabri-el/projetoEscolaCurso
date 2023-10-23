@@ -83,9 +83,16 @@ C:\Projeto\Escola\Escola\bin\Debug\net6.0\Escola.deps.json
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Escola.runtimeconfig.json
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Escola.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Escola.pdb
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\DocumentValidator.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Humanizer.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\MessagePack.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\MessagePack.Annotations.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.Razor.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.WebPages.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -111,6 +118,7 @@ C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.DotNet.Scaffolding.Shared.dl
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
@@ -135,6 +143,7 @@ C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerat
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\NuGet.Common.dll
@@ -155,7 +164,6 @@ C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Composition.Hosting.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Composition.Runtime.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Composition.TypedParts.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
@@ -353,6 +361,7 @@ C:\Projeto\Escola\Escola\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\staticwebassets.build.json
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\staticwebassets.development.json
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Projeto\Escola\Escola\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutModals.cshtml.rz.scp.css
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\scopedcss\bundle\Escola.styles.css
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\scopedcss\projectbundle\Escola.bundle.scp.css
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\Escola.csproj.CopyComplete
@@ -361,12 +370,4 @@ C:\Projeto\Escola\Escola\obj\Debug\net6.0\refint\Escola.dll
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\Escola.pdb
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\Escola.genruntimeconfig.cache
 C:\Projeto\Escola\Escola\obj\Debug\net6.0\ref\Escola.dll
-C:\Projeto\Escola\Escola\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutModals.cshtml.rz.scp.css
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\DocumentValidator.dll
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.Mvc.dll
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.Razor.dll
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.Helpers.dll
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Web.WebPages.dll
-C:\Projeto\Escola\Escola\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
+C:\Projeto\Escola\Escola\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll

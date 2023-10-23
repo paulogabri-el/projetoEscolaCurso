@@ -260,19 +260,18 @@ namespace Escola.Controllers
                 var aluno = await _svcAluno.BuscarAlunoPorCpfAsync(cpf);
                 if (aluno != null && aluno.DataNascimento.Date == dataNascimento.Date)
                 {
-                    var matriculas = _svcMatricula.BuscarMatriculaPorIdAluno(aluno.Id).Result;
-                    if (matriculas != null)
-
+                    var matriculas = _svcMatricula.BuscarMatriculaPorIdAluno(aluno.Id).Result.Where(x => x.Ativa == true).ToList();
+                    if (matriculas.Any())
                     {
                         return View("SouAlunoMatriculas", matriculas);
                     }
 
                     TempData["Informacao"] = $"Não existem matrículas ativas para esse aluno!";
-                    return RedirectToAction(nameof(SouAluno));
+                    return View("SouAlunoMatriculas");
                 }
 
                 TempData["Informacao"] = $"Aluno não encontrado. Verifique o CPF e a data de nascimento!";
-                return RedirectToAction(nameof(SouAluno));
+                return View("SouAlunoMatriculas");
 
             }
             catch (Exception)

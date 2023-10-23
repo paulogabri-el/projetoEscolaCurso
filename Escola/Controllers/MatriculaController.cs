@@ -116,10 +116,20 @@ namespace Escola.Controllers
                         return RedirectToAction(nameof(Index));
                     }
 
-                    await _svcMatricula.NovaMatriculaAsync(matriculaViewModel);
-                    TempData["Sucesso"] = "Matrícula realizada com sucesso!";
+                    var validaQuantidadeVagas = _svcCurso.ValidaVagasDisponiveis(matriculaViewModel.CursoId).Result;
+
+                    if (validaQuantidadeVagas)
+                    {
+                        await _svcMatricula.NovaMatriculaAsync(matriculaViewModel);
+                        TempData["Sucesso"] = "Matrícula realizada com sucesso!";
+
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                    TempData["Informacao"] = "O curso escolhido não tem vagas disponíveis!";
 
                     return RedirectToAction(nameof(Index));
+
                 }
 
                 ViewData["AlunoId"] = new SelectList(_context.Aluno, "Id", "Nome", matriculaViewModel.AlunoId);

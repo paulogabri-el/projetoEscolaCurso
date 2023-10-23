@@ -12,6 +12,7 @@ namespace Escola.Services
         {
             _context = context;
         }
+
         public async Task<List<Aluno?>> BuscarAlunosAsync()
         {
             var alunos = await _context.Aluno.ToListAsync();
@@ -29,7 +30,7 @@ namespace Escola.Services
         public async Task<Aluno> BuscarAlunoPorCpfAsync(string cpf)
         {
             cpf = cpf.Replace(".", "").Replace("-", "");
-            var aluno = await _context.Aluno.FirstOrDefaultAsync(x => x.CPF == cpf);
+            var aluno = await _context.Aluno.FirstOrDefaultAsync(x => x.CPF.Replace(".", "").Replace("-", "") == cpf);
 
             return aluno;
         }
@@ -46,6 +47,8 @@ namespace Escola.Services
             var alunoEditar = await BuscarAlunoPorIdAsync(aluno.Id);
 
             alunoEditar.Nome = aluno.Nome;
+            aluno.FormataCpf(aluno.CPF);
+            alunoEditar.CPF = aluno.CPF; 
             alunoEditar.DataNascimento = aluno.DataNascimento;
             alunoEditar.DataAlteracao = DateTime.Now;
 
@@ -68,6 +71,7 @@ namespace Escola.Services
         {
             aluno.DataCriacao = DateTime.Now;
             aluno.Ativo = true;
+            aluno.FormataCpf(aluno.CPF);
 
             _context.Aluno.Add(aluno);
             await _context.SaveChangesAsync();

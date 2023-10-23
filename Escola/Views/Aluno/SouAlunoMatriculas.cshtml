@@ -30,38 +30,41 @@
 }
 
 <div>
-    <table class="table table-sm table-borderless">
-        <thead>
-            <tr>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.Curso)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.Aluno)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.DataCriacao)
-                </th>
-                <th class="text-center"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    @if(Model != null)
+    {
+        <table class="table table-sm table-borderless">
+            <thead>
                 <tr>
-                    <td class="text-center">
-                        @Html.DisplayFor(modelItem => item.Curso.Descricao)
-                    </td>
-                    <td class="text-center">
-                        @Html.DisplayFor(modelItem => item.Aluno.Nome)
-                    </td>
-                    <td class="text-center">
-                        @Html.DisplayFor(modelItem => item.DataCriacao)
-                    </td>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Curso)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Aluno)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.DataCriacao)
+                    </th>
+                    <th class="text-center"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Curso.Descricao)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Aluno.Nome)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.DataCriacao)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 
     <div>
         <a class="btn btn-editado" asp-action="SouAluno">Voltar</a>

@@ -138,7 +138,7 @@ namespace Escola.Controllers
                     
                     if (!validaNovaQuantidade)
                     {
-                        TempData["Informacao"] = "Existem mais matrículas ativas do a nova quantidade de vagas informadas! Só é permitido alterar para uma quantiade igual ou superior à quantidade de matriculas ativas!";
+                        TempData["Informacao"] = "Existem mais matrículas ativas do que a nova quantidade de vagas informadas! Só é permitido alterar para uma quantiade igual ou superior à quantidade de matriculas ativas!";
                         return RedirectToAction(nameof(Index));
                     }
                     

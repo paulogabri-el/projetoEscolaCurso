@@ -93,9 +93,9 @@ namespace Escola.Services
             if(curso != null)
             {
                 var vagas = curso.QtdMaxAlunos;
-                var alunosAtivs = _context.Matricula.Where(x => x.CursoId == id && x.Ativa == true).Count();
+                var alunosAtivos = _context.Matricula.Where(x => x.CursoId == id && x.Ativa == true).Count();
 
-                return vagas > alunosAtivs;
+                return vagas > alunosAtivos;
             }
 
             return false;

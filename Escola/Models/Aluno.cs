@@ -33,5 +33,10 @@ namespace Escola.Models
                 return $"{CPF[..3]}.{CPF.Substring(3, 3)}.{CPF.Substring(6, 3)}-{CPF[9..]}";
             }
         }
+        
+        public void FormataCpf (string cpf)
+        {
+            CPF = cpf.Replace(".", "").Replace("-", "");
+        }
     }
 }

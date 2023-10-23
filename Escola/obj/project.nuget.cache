@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "e1RCA0O6jj4gd2SuZ73ZUivOnUP/Zjrv1RTFLfp7lgWsyACTIJQjQlQFGhzvfChkWXJCI9DUsM4mMEhDWOVD4A==",
+  "dgSpecHash": "+metpQUH7iJEcUF6Q/2ETBrJ7bFhsYwqTrffnJ3JfwY29OjwGoCe9mtAeD5Vy5kRwtHfpUwHfgI0GiOPdqrhZA==",
   "success": true,
   "projectFilePath": "C:\\Projeto\\Escola\\Escola\\Escola.csproj",
   "expectedPackageFiles": [
@@ -91,6 +91,7 @@
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.21\\microsoft.entityframeworkcore.abstractions.6.0.21.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.21\\microsoft.entityframeworkcore.analyzers.6.0.21.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.21\\microsoft.entityframeworkcore.design.6.0.21.nupkg.sha512",
+    "C:\\Users\\paulo\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.21\\microsoft.entityframeworkcore.inmemory.6.0.21.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.21\\microsoft.entityframeworkcore.relational.6.0.21.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\6.0.21\\microsoft.entityframeworkcore.sqlite.6.0.21.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\6.0.21\\microsoft.entityframeworkcore.sqlite.core.6.0.21.nupkg.sha512",

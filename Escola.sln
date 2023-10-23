@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escola", "Escola\Escola.csproj", "{D9207E91-2026-4B8E-AFC6-A63914F67E40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Escola", "Escola\Escola.csproj", "{D9207E91-2026-4B8E-AFC6-A63914F67E40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escola.Tests", "Escola.Tests\Escola.Tests.csproj", "{B777FE0B-9607-431C-AC61-39A831BDA604}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D9207E91-2026-4B8E-AFC6-A63914F67E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9207E91-2026-4B8E-AFC6-A63914F67E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9207E91-2026-4B8E-AFC6-A63914F67E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B777FE0B-9607-431C-AC61-39A831BDA604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B777FE0B-9607-431C-AC61-39A831BDA604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B777FE0B-9607-431C-AC61-39A831BDA604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B777FE0B-9607-431C-AC61-39A831BDA604}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
