@@ -14,6 +14,10 @@ Aplicação desenvolvida com o intuito de cadastrar alunos, cursos e posteriorme
 - Não é permitido a inativação do aluno e/ou do curso caso exista matrículas ativas.
 
 -----------------
+## 🧪 Testes Unitários
+
+- Utilizado xUnit para escrever e execultar os testes unitários, garantindo maior segurança e confiabilidade no código.
+
 -----------------
 ### 📋 Requisitos
 
@@ -32,7 +36,7 @@ Depois da instalação dos programas necessários, seguir os passos:
        ```
   
   - Configurar a string de conexão do seu Sql Server no program.cs;
-      ``` "string" ```
+      ``` "Server=localhost,1433;Database=ProjetoEscolaSqlServer;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;" ```
       
   - Salvar o projeto e rodar o comando "Update-Database" no console do gerenciador de pacotes;
   
